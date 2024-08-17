@@ -1,4 +1,4 @@
-<div class="p-4 w-full lg:w-1/3">
+<div class="w-full">
     <div class="p-6 bg-white border border-black">
         <div class="flex mb-2">
             <x-dynamic-component :component="$icon" class="inline-block flex-shrink-0 mr-2 w-5 h-5" />

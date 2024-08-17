@@ -8,7 +8,7 @@
     <h2 class="text-2xl font-bold">Welcome, {{ auth()->user()->name }} 👋</h2>
   </div>
   <div class="px-4 mx-auto mt-8 space-y-8 max-w-5xl">
-      <div class="flex flex-wrap -m-4">
+      <div class="flex space-x-4">
           <x-app.dashboard-card icon="phosphor-user" label="Users" value="143" change-direction="up" change-percentage="25"></x-app.dashboard-card>
           <x-app.dashboard-card icon="phosphor-money" label="Sales" value="54" change-direction="down" change-percentage="5"></x-app.dashboard-card>
           <x-app.dashboard-card icon="phosphor-arrows-clockwise" label="Refunds" value="3" change-direction="up" change-percentage="10"></x-app.dashboard-card>
