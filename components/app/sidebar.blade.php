@@ -1,4 +1,4 @@
-<aside class="flex fixed flex-col flex-shrink-0 justify-between w-64 h-screen bg-white border-r border-black">
+<aside class="flex overflow-scroll overflow-x-hidden fixed flex-col flex-shrink-0 justify-between w-64 h-screen bg-white border-r border-black scrollbar-hide">
     <div class="flex flex-col items-start p-7">
         <a href="/dashboard">
             <x-logo class="mb-6 w-auto h-7"></x-logo>
