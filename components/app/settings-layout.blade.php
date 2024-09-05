@@ -1,5 +1,5 @@
-<x-card class="flex flex-col mx-auto w-full max-w-4xl">
-    <div class="flex flex-wrap justify-between items-center pb-3 border-b border-gray-400 dark:border-zinc-800 sm:flex-no-wrap">
+<x-card class="flex flex-col w-full max-w-4xl mx-auto">
+    <div class="flex flex-wrap items-center justify-between pb-3 border-b border-gray-400 dark:border-zinc-800 sm:flex-no-wrap">
         <div class="relative p-2">
             <div class="space-y-0.5">
                 <h2 class="text-xl font-semibold tracking-tight dark:text-zinc-100">{{ $title ?? '' }}</h2>
@@ -17,7 +17,6 @@
                 
 
                 <div class="px-2.5 pt-3.5 pb-1.5 text-xs font-semibold leading-6 text-zinc-500">Billing</div>
-                <x-settings-sidebar-link :href="route('settings.plans')" icon="phosphor-storefront-duotone">Plans</x-settings-sidebar-link>
                 <x-settings-sidebar-link :href="route('settings.subscription')" icon="phosphor-credit-card-duotone">Subscription</x-settings-sidebar-link>
                 <x-settings-sidebar-link :href="route('settings.invoices')" icon="phosphor-invoice-duotone">Invoices</x-settings-sidebar-link>
             </nav>

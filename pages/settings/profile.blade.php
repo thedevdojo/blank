@@ -1,6 +1,6 @@
 <?php
 
-    use function Laravel\Folio\{name};
+    use function Laravel\Folio\{middleware, name};
     use Filament\Forms\Concerns\InteractsWithForms;
     use Filament\Forms\Contracts\HasForms;
     use Filament\Forms\Form;
@@ -9,6 +9,7 @@
 	use Wave\Traits\HasDynamicFields;
     use Wave\ApiKey;
     
+	middleware('auth');
     name('settings.profile');
 
 	new class extends Component implements HasForms
@@ -164,14 +165,14 @@
 		"
 		class="relative">
 			<form wire:submit="save" class="w-full">
-				<div class="flex relative flex-col px-10 mt-5">
+				<div class="relative flex flex-col px-10 mt-5">
 					<div class="relative flex-shrink-0 w-32 h-32 cursor-pointer group">
 						<img id="preview" src="{{ auth()->user()->avatar() . '?' . time() }}" class="w-32 h-32 border border-black">
                         
 						
 						<div class="absolute inset-0 w-full h-full">
 							<input type="file" id="upload" class="absolute inset-0 z-20 w-full h-full opacity-0 cursor-pointer group">
-							<button class="flex absolute bottom-0 left-1/2 z-10 justify-center items-center mb-2 -ml-5 w-10 h-10 bg-black bg-opacity-75 rounded-full opacity-75 group-hover:opacity-100">
+							<button class="absolute bottom-0 z-10 flex items-center justify-center w-10 h-10 mb-2 -ml-5 bg-black bg-opacity-75 rounded-full opacity-75 left-1/2 group-hover:opacity-100">
 								<svg class="w-6 h-6 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
 							</button>
 						</div>
@@ -179,10 +180,10 @@
 					@error('avatar')
 						<p class="mt-3 text-sm text-red-600">The avatar must be a valid image type.</p>
 					@enderror
-					<div class="mt-8 w-full">
+					<div class="w-full mt-8">
 						{{ $this->form }}
 					</div>
-					<div class="pt-6 w-full text-right">
+					<div class="w-full pt-6 text-right">
 						<x-button type="submit">Save</x-button>
 					</div>
 				</div>
@@ -197,9 +198,9 @@
 								Position and resize your photo
 							</h3>
 							<div class="mt-2">
-								<div id="upload-crop-container" class="flex relative justify-center items-center mt-5 h-56">
-									<div id="uploadLoading" class="flex justify-center items-center w-full h-full">
-										<svg class="mr-3 -ml-1 w-5 h-5 animate-spin text-zinc-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+								<div id="upload-crop-container" class="relative flex items-center justify-center h-56 mt-5">
+									<div id="uploadLoading" class="flex items-center justify-center w-full h-full">
+										<svg class="w-5 h-5 mr-3 -ml-1 animate-spin text-zinc-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
 											<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
 										</svg>
 									</div>
@@ -210,8 +211,8 @@
 					</div>
 					<div class="mt-5 sm:mt-6">
 						<span class="flex w-full rounded-md shadow-sm">
-							<button @click="window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'profile-avatar-crop' }}));" class="inline-flex justify-center px-4 py-2 mr-2 w-full text-base font-medium leading-6 bg-white rounded-md border border-transparent shadow-sm transition duration-150 ease-in-out text-zinc-700 border-zinc-300 hover:text-zinc-500 active:text-zinc-800 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue sm:text-sm sm:leading-5" type="button">Cancel</button>
-							<button @click="window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'profile-avatar-crop' }})); applyImageCrop()" class="inline-flex justify-center px-4 py-2 ml-2 w-full text-base font-medium leading-6 text-white bg-blue-600 rounded-md border border-transparent shadow-sm transition duration-150 ease-in-out hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-wave sm:text-sm sm:leading-5" id="apply-crop" type="button">Apply</button>
+							<button @click="window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'profile-avatar-crop' }}));" class="inline-flex justify-center w-full px-4 py-2 mr-2 text-base font-medium leading-6 transition duration-150 ease-in-out bg-white border border-transparent rounded-md shadow-sm text-zinc-700 border-zinc-300 hover:text-zinc-500 active:text-zinc-800 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue sm:text-sm sm:leading-5" type="button">Cancel</button>
+							<button @click="window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'profile-avatar-crop' }})); applyImageCrop()" class="inline-flex justify-center w-full px-4 py-2 ml-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-wave sm:text-sm sm:leading-5" id="apply-crop" type="button">Apply</button>
 						</span>
 					</div>
 				</x-filament::modal>
