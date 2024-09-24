@@ -4,7 +4,7 @@
         title="Build with Confidence" 
         description="Dive into a world of endless possibilities with our comprehensive toolkit." 
     />
-
+    
     <div class="flex mt-16 space-x-12">
         <div class="grid items-center w-1/2 grid-cols-1 gap-10 lg:grid-cols-2">
             <div>
