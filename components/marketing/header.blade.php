@@ -38,8 +38,8 @@
                     </div>
                 @endif
                 <div class="w-auto lg:hidden">
-                    <button x-on:click="mobileNavOpen = !mobileNavOpen">
-                        <svg class="text-indigo-600" width="51" height="51" viewbox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="56" height="56" rx="28" fill="currentColor"></rect><path d="M37 32H19M37 24H19" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <button x-on:click="mobileNavOpen = !mobileNavOpen" class="text-white bg-gray-900 p-3">
+                        <x-phosphor-list class="w-6 h-6" />
                     </button>
                 </div>
             </div>
@@ -58,34 +58,28 @@
                         </div>
                         <div class="p-2 w-auto">
                             <button x-on:click="mobileNavOpen = !mobileNavOpen">
-                                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
+                                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col justify-center py-16 w-full">
                     <ul>
-                        <li class="mb-12"><a class="font-medium hover:text-gray-700" href="#">Features</a></li>
-                        <li class="mb-12"><a class="font-medium hover:text-gray-700" href="#">Solutions</a></li>
-                        <li class="mb-12"><a class="font-medium hover:text-gray-700" href="#">Resources</a></li>
-                        <li><a class="font-medium hover:text-gray-700" href="#">Pricing</a></li>
+                        <li class="mb-12"><a class="font-medium hover:text-gray-700" href="/">Home</a></li>
+                        <li class="mb-12"><a class="font-medium hover:text-gray-700" href="/blog">Blog</a></li>
+                        <li class="mb-12"><a class="font-medium hover:text-gray-700" href="#_">Features</a></li>
+                        <li><a class="font-medium hover:text-gray-700" href="/pricing">Pricing</a></li>
                     </ul>
                 </div>
                 <div class="flex flex-col justify-end pb-8 w-full">
-                    <div class="flex flex-wrap">
-                        <div class="mb-3 w-full">
-                            <div class="block">
-                                <button class="px-5 py-3 w-full font-medium bg-transparent rounded-xl transition duration-200 ease-in-out hover:text-gray-700" type="button">Sign In</button>
-                            </div>
+                    @if(auth()->guest())
+                        <div class="flex flex-wrap space-y-3 w-full">
+                            <a href="/auth/login" class="px-5 block text-center bg-gray-100 py-3 w-full font-medium transition duration-200 ease-in-out hover:text-gray-700" type="button">Sign In</a>
+                            <a href="/auth/register" class="px-5 block text-center py-3 w-full font-semibold text-white bg-gray-900 transition duration-200 ease-in-out focus:ring focus:ring-gray-900 hover:bg-gray-900">Try 14 Days Free Trial</a>
                         </div>
-                        <div class="w-full">
-                            <div class="block">
-                                <button class="px-5 py-3 w-full font-semibold text-white bg-indigo-600 rounded-xl transition duration-200 ease-in-out focus:ring focus:ring-indigo-300 hover:bg-indigo-700" type="button">Try 14 Days Free Trial</button>
-                            </div>
-                        </div>
-                    </div>
+                    @else
+                        <a href="/dashboard" class="px-5 block text-center py-3 w-full font-semibold text-white bg-gray-900 transition duration-200 ease-in-out focus:ring focus:ring-gray-900 hover:bg-gray-900">View Dashboard</a>
+                    @endif
                 </div>
             </div>
         </nav>

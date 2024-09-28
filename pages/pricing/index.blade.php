@@ -5,7 +5,7 @@
 
 <x-layouts.marketing>
 
-    <x-container class="py-12">
+    <x-container>
         <x-marketing.pricing></x-marketing.pricing>
 
         <div class="flex flex-col w-full">

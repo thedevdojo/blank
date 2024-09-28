@@ -1,12 +1,14 @@
-<section class="max-w-6xl px-5 py-24 mx-auto">
-    <x-marketing.heading 
-        level="h2" 
-        title="Build with Confidence" 
-        description="Dive into a world of endless possibilities with our comprehensive toolkit." 
-    />
+<section class="max-w-6xl lg:px-5 py-16 sm:py-20 lg:py-32 mx-auto">
+    <div class="lg:px-0 px-5">
+        <x-marketing.heading 
+            level="h2" 
+            title="Build with Confidence" 
+            description="Dive into a world of endless possibilities with our comprehensive toolkit." 
+        />
+    </div>
     
-    <div class="flex mt-16 space-x-12">
-        <div class="grid items-center w-1/2 grid-cols-1 gap-10 lg:grid-cols-2">
+    <div class="flex mt-16 lg:flex-row flex-col lg:max-w-auto lg:space-x-12 lg:items-start items-center">
+        <div class="grid lg:px-0 px-5 sm:px-12 items-start lg:mb-0 mb-10 w-full lg:w-1/2 grid-cols-1 gap-10 sm:grid-cols-2">
             <div>
                 <div class="flex flex-col gap-10 list-none text-pretty">
                     <div>
@@ -26,7 +28,7 @@
                 </div>
             </div>
             <div>
-                <div class="flex flex-col gap-10 list-none text-pretty lg:gap-6">
+                <div class="flex flex-col gap-10 list-none text-pretty">
                     <div>
                         <div class="inline-flex items-center justify-center w-10 h-10 text-4xl leading-none text-white bg-black aspect-square">
                             <span class="-translate-y-[3px] translate-x-px">»</span>
@@ -44,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-1/2 h-auto">
+        <div class="w-full lg:w-1/2 h-auto">
             <div class="min-h-[370px] w-full bg-gray-200"></div>
         </div>
     </div>

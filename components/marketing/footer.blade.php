@@ -42,7 +42,7 @@
                 <li><a href="/" class="text-sm font-semibold text-black transition-colors duration-300 sm:text-base">Disclaimers</a></li>
                 <li><a href="/" class="text-sm font-semibold text-black transition-colors duration-300 sm:text-base">Terms &amp; Conditions</a></li>
             </ul>
-            <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row"><a href="/" class="font-semibold tracking-tight text-black transition-colors duration-300 text-md hover:text-deep-purple-accent-400">© 2024 Wave.</a></ul>
+            <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row"><a href="/" class="font-semibold tracking-tight text-black transition-colors duration-300 text-md hover:text-deep-purple-accent-400">© {{ date('Y') }} Wave.</a></ul>
         </div>
     </div>
 </footer>

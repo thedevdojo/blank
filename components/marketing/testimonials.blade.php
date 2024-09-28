@@ -1,12 +1,14 @@
-<section class="px-5 py-24 mx-auto max-w-6xl">
+<section class="max-w-6xl lg:px-5 pb-3 pt-0 sm:pt-5 sm:pb-12 lg:pb-16 mx-auto">
 
-    <x-marketing.heading
-        level="h2"
-        title="Testimonials from Happy Customers"
-        description="Explore the success stories of companies that have thrived using Wave." 
-    />
+    <div class="lg:px-0 px-5">
+        <x-marketing.heading
+            level="h2"
+            title="Testimonials from Happy Customers"
+            description="Explore the success stories of companies that have thrived using Wave." 
+        />
+    </div>
 
-    <div class="mt-16 w-full">
+    <div class="mt-16 w-full px-5">
         <ul role="list" class="grid grid-cols-1 gap-12 mx-auto max-w-2xl lg:max-w-none lg:grid-cols-3">
             <li>
                 <figure class="flex flex-col justify-between h-full">

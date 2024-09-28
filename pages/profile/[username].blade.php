@@ -32,7 +32,7 @@
                 />
             @endguest
 
-            <div class="flex @guest pb-20 pt-10 @endguest space-x-5 h-full">
+            <div class="flex lg:px-6 px-0 lg:flex-row flex-col @guest pb-20 pt-10 @endguest lg:space-y-0 space-y-5 lg:space-x-5 h-full">
                 <x-card class="flex flex-col justify-center items-center p-10 w-full lg:w-1/3">
                         <img src="{{ $this->user->avatar() }}" class="w-24 h-24 rounded-full border-4 border-zinc-200">
                         <h2 class="mt-8 text-2xl font-bold">{{ $this->user->name }}</h2>
