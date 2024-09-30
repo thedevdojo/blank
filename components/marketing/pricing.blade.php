@@ -7,7 +7,7 @@
             description="Modify this view from your theme pages/pricing/index.blade.php file." 
         />
 
-        <div x-data="{ on: false, billing: 'Monthly',
+        <div x-data="{ on: false, billing: '{{ get_default_billing_cycle() }}',
                 toggleRepositionMarker(toggleButton){
                     this.$refs.marker.style.width=toggleButton.offsetWidth + 'px';
                     this.$refs.marker.style.height=toggleButton.offsetHeight + 'px';
@@ -25,19 +25,21 @@
             "
             class="w-full max-w-6xl mx-auto mt-12 mb-4 sm:my-12" x-cloak>
 
-            <div class="relative flex items-start justify-start pb-5 -translate-y-2">
-                <div class="relative inline-flex items-center justify-center w-auto p-1 text-center -translate-y-3 border-2 border-gray-900 sm:mx-auto">
-                    <div x-ref="monthly" x-on:click="billing='Monthly'; toggleRepositionMarker($el)" :class="{ 'text-white': billing == 'Monthly' }" class="relative z-20 px-3.5 py-1 text-sm font-medium leading-6 text-gray-900 rounded-full duration-300 ease-out cursor-pointer">
-                        Monthly
-                    </div>
-                    <div x-ref="yearly" x-on:click="billing='Yearly'; toggleRepositionMarker($el)" :class="{ 'text-white': billing == 'Yearly' }" class="relative z-20 px-3.5 py-1 text-sm font-medium leading-6 text-gray-900 rounded-full duration-300 ease-out cursor-pointer">
-                        Yearly
-                    </div>
-                    <div x-ref="marker" class="absolute left-0 z-10 w-1/2 h-full opacity-0" x-cloak>
-                        <div class="w-full h-full bg-gray-900 shadow-sm"></div>
-                    </div>
-                </div>  
-            </div>
+            @if(has_monthly_yearly_toggle())
+                <div class="relative flex items-start justify-start pb-5 -translate-y-2">
+                    <div class="relative inline-flex items-center justify-center w-auto p-1 text-center -translate-y-3 border-2 border-gray-900 sm:mx-auto">
+                        <div x-ref="monthly" x-on:click="billing='Monthly'; toggleRepositionMarker($el)" :class="{ 'text-white': billing == 'Monthly' }" class="relative z-20 px-3.5 py-1 text-sm font-medium leading-6 text-gray-900 rounded-full duration-300 ease-out cursor-pointer">
+                            Monthly
+                        </div>
+                        <div x-ref="yearly" x-on:click="billing='Yearly'; toggleRepositionMarker($el)" :class="{ 'text-white': billing == 'Yearly' }" class="relative z-20 px-3.5 py-1 text-sm font-medium leading-6 text-gray-900 rounded-full duration-300 ease-out cursor-pointer">
+                            Yearly
+                        </div>
+                        <div x-ref="marker" class="absolute left-0 z-10 w-1/2 h-full opacity-0" x-cloak>
+                            <div class="w-full h-full bg-gray-900 shadow-sm"></div>
+                        </div>
+                    </div>  
+                </div>
+            @endif
 
             <div class="flex flex-col flex-wrap lg:flex-row">
 
