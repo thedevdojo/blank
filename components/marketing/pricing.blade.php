@@ -7,7 +7,7 @@
             description="Modify this view from your theme pages/pricing/index.blade.php file." 
         />
 
-        <div x-data="{ on: false, billing: 'Monthly', basic: {'Monthly' : '19', 'Yearly' : '180'}, pro: {'Monthly' : '49', 'Yearly' : '450' },
+        <div x-data="{ on: false, billing: 'Monthly',
                 toggleRepositionMarker(toggleButton){
                     this.$refs.marker.style.width=toggleButton.offsetWidth + 'px';
                     this.$refs.marker.style.height=toggleButton.offsetHeight + 'px';
@@ -23,10 +23,10 @@
                         }, 10); 
                     }, 1);
             "
-            class="mx-auto mt-12 mb-4 sm:my-12 w-full max-w-6xl" x-cloak>
+            class="w-full max-w-6xl mx-auto mt-12 mb-4 sm:my-12" x-cloak>
 
-            <div class="flex relative justify-start items-start pb-5 -translate-y-2">
-                <div class="inline-flex relative justify-center items-center p-1 sm:mx-auto w-auto text-center border-2 border-gray-900 -translate-y-3">
+            <div class="relative flex items-start justify-start pb-5 -translate-y-2">
+                <div class="relative inline-flex items-center justify-center w-auto p-1 text-center -translate-y-3 border-2 border-gray-900 sm:mx-auto">
                     <div x-ref="monthly" x-on:click="billing='Monthly'; toggleRepositionMarker($el)" :class="{ 'text-white': billing == 'Monthly' }" class="relative z-20 px-3.5 py-1 text-sm font-medium leading-6 text-gray-900 rounded-full duration-300 ease-out cursor-pointer">
                         Monthly
                     </div>
@@ -39,17 +39,20 @@
                 </div>  
             </div>
 
-            <div class="flex flex-wrap">
+            <div class="flex flex-col flex-wrap lg:flex-row">
 
                 @foreach(Wave\Plan::where('active', 1)->get() as $plan)
                     @php $features = explode(',', $plan->features); @endphp
-                    <div class="w-full lg:px-4 mb-8 lg:w-1/3 lg:mb-0">
+                    <div 
+                        {{--  Say that you have a monthly plan that doesn't have a yearly plan, in that case we will hide the place that doesn't have a price_id --}}
+                        x-show="(billing == 'Monthly' && '{{ $plan->monthly_price_id }}' != '') || (billing == 'Yearly' && '{{ $plan->yearly_price_id }}' != '')" 
+                        class="flex-1 w-full max-w-xl mx-auto mb-8 lg:px-4 lg:mb-0">
                         <div class="p-8 border">
                         <h3 class="mb-6 text-xl font-semibold">{{ $plan->name }}</h3>
                         
-                        <div class="mb-6 text-5xl font-bold">
+                        <div class="flex items-end mb-6 space-x-0.5 text-5xl font-bold">
                             <span>$<span x-text="billing == 'Monthly' ? '{{ $plan->monthly_price }}' : '{{ $plan->yearly_price }}'"></span></span>
-                            <span class="text-base font-medium"><span x-text="billing == 'Monthly' ? '/mo' : '/yr'"></span></span>
+                            <span class="text-base block -translate-y-0.5 font-medium"><span x-text="billing == 'Monthly' ? '/mo' : '/yr'"></span></span>
                         </div>
                         <ul class="mb-8 text-left">
                             @foreach($features as $feature)
@@ -65,6 +68,6 @@
             </div>
         </div>
 
-        <p class="w-full my-4 sm:my-8 text-zinc-500 md:my-10 text-center">All plans are fully configurable in the Admin Area.</p>
+        <p class="w-full my-4 text-center sm:my-8 text-zinc-500 md:my-10">All plans are fully configurable in the Admin Area.</p>
     </x-container>
 </section>
