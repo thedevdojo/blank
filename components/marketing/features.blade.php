@@ -1,5 +1,5 @@
-<section class="max-w-6xl lg:px-5 py-16 sm:py-20 lg:py-32 mx-auto">
-    <div class="lg:px-0 px-5">
+<section class="max-w-6xl py-16 mx-auto lg:px-5 sm:py-20 lg:py-32">
+    <div class="px-5 lg:px-0">
         <x-marketing.heading 
             level="h2" 
             title="Build with Confidence" 
@@ -7,8 +7,8 @@
         />
     </div>
     
-    <div class="flex mt-16 lg:flex-row flex-col lg:max-w-auto lg:space-x-12 lg:items-start items-center">
-        <div class="grid lg:px-0 px-5 sm:px-12 items-start lg:mb-0 mb-10 w-full lg:w-1/2 grid-cols-1 gap-10 sm:grid-cols-2">
+    <div class="flex flex-col items-center mt-16 lg:flex-row lg:max-w-auto lg:space-x-12 lg:items-start">
+        <div class="grid items-start w-full grid-cols-1 gap-10 px-5 mb-10 lg:px-0 sm:px-12 lg:mb-0 lg:w-1/2 sm:grid-cols-2">
             <div>
                 <div class="flex flex-col gap-10 list-none text-pretty">
                     <div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 h-auto">
+        <div class="w-full h-auto lg:w-1/2">
             <div class="min-h-[370px] w-full bg-gray-200"></div>
         </div>
     </div>

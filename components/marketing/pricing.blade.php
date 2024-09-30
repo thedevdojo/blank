@@ -48,7 +48,7 @@
                     <div 
                         {{--  Say that you have a monthly plan that doesn't have a yearly plan, in that case we will hide the place that doesn't have a price_id --}}
                         x-show="(billing == 'Monthly' && '{{ $plan->monthly_price_id }}' != '') || (billing == 'Yearly' && '{{ $plan->yearly_price_id }}' != '')" 
-                        class="flex-1 w-full max-w-xl mx-auto mb-8 lg:px-4 lg:mb-0">
+                        class="flex-1 w-full max-w-xl mx-auto mb-8 lg:px-4 lg:mb-0" x-cloak>
                         <div class="p-8 border">
                         <h3 class="mb-6 text-xl font-semibold">{{ $plan->name }}</h3>
                         
