@@ -4,22 +4,23 @@
 ?>
 
 <x-layouts.marketing>
-
-    <x-elements.back-button
-        class="mx-auto mt-8 max-w-4xl"
-        text="back to the blog"
-        :href="route('blog')"
-    />
     
     <x-container>
-        <article id="post-{{ $post->id }}" class="pb-20 mx-auto max-w-4xl prose prose-md lg:prose-lg lg:px-0">
+
+        <x-elements.back-button
+            class="max-w-4xl mx-auto mt-8"
+            text="back to the blog"
+            :href="route('blog')"
+        />
+
+        <article id="post-{{ $post->id }}" class="max-w-4xl pb-20 mx-auto prose prose-md lg:prose-lg lg:px-0">
 
             <meta property="name" content="{{ $post->title }}">
             <meta property="author" typeof="Person" content="admin">
             <meta property="dateModified" content="{{ Carbon\Carbon::parse($post->updated_at)->toIso8601String() }}">
             <meta class="uk-margin-remove-adjacent" property="datePublished" content="{{ Carbon\Carbon::parse($post->created_at)->toIso8601String() }}">
 
-            <div class="mx-auto mt-6 max-w-4xl">
+            <div class="max-w-4xl mx-auto mt-6">
 
                 <h1 class="flex flex-col leading-none">
                     <span>{{ $post->title }}</span>
@@ -33,7 +34,7 @@
                 <img class="w-full h-auto" src="{{ $post->image() }}" alt="{{ $post->title }}" srcset="{{ $post->image() }}">
             </div>
 
-            <div class="mx-auto max-w-4xl">
+            <div class="max-w-4xl mx-auto">
                 {!! $post->body !!}
             </div>
 
