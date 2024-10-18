@@ -16,7 +16,6 @@
     @livewire('notifications')
     @filamentScripts
     @livewireScripts
-    @waveCheckout
     
     {{ $javascript ?? '' }}
 

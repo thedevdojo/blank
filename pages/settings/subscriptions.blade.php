@@ -32,7 +32,7 @@
                     <div>
                         You are logged in as an admin and have full access. Authenticate with a different user and visit this page to see the subscription checkout process.
                     </div>
-                @notrole
+                @else
                     @subscriber
                         
                         <div class="relative w-full h-auto">                            
@@ -51,8 +51,8 @@
                     @endsubscriber
 
                     @notsubscriber
-                        <div class="mb-4">
-                            <div>
+                        <div class="mb-7">
+                            <div class="flex items-center space-x-2">
                                 <x-phosphor-shopping-bag-open-duotone class="flex-shrink-0 mr-1.5 -ml-1.5 w-6 h-6" />
                                 <span>No active subscriptions found. Please select a plan below.</span>
                             </div>
