@@ -165,7 +165,7 @@
 		"
 		class="relative">
 			<form wire:submit="save" class="w-full">
-				<div class="relative flex flex-col lg:px-10 mt-5">
+				<div class="relative flex flex-col mt-5 lg:px-10">
 					<div class="relative flex-shrink-0 w-32 h-32 cursor-pointer group">
 						<img id="preview" src="{{ auth()->user()->avatar() . '?' . time() }}" class="w-32 h-32 border border-black">
                         
